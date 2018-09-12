@@ -30,11 +30,11 @@
 
 <script>
 export default {
-  data() {
+  data () {
     return {
       loginForm: {
-        username: '',
-        password: ''
+        username: 'admin',
+        password: '123456'
       },
       rules: {
         username: [
@@ -46,10 +46,10 @@ export default {
     }
   },
   methods: {
-    resetFrom() {
+    resetFrom () {
       this.$refs.loginFormRef.resetFields()
     },
-    login() {
+    login () {
       this.$refs.loginFormRef.validate(async res => {
         // console.log(res)
         if (!res) return
@@ -61,6 +61,7 @@ export default {
         }
         this.$message.success(req.meta.msg)
         window.sessionStorage.setItem('token', req.data.token)
+        this.$router.push('/home')
       })
     }
   }

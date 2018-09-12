@@ -7,3 +7,12 @@ h1,
   margin: 0;
   padding: 0;
 }
+
+i.iconfont {
+  margin-right: 8px;
+}
+
+.el-submenu__title,
+.el-menu-item {
+  font-size: 13px;
+}
