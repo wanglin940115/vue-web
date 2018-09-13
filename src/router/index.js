@@ -3,6 +3,7 @@ import Router from 'vue-router'
 import Login from '@/components/login'
 import Home from '@/components/home/Home'
 import Welcome from '@/components/home/welcome'
+import UserList from '@/components/user/userList'
 
 Vue.use(Router)
 // 创建路由对象
@@ -20,6 +21,9 @@ const router = new Router({
     children: [{
       path: '/welcome',
       component: Welcome
+    }, {
+      path: '/users',
+      component: UserList
     }]
   }]
 })

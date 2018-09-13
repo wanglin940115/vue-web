@@ -11,7 +11,7 @@ import './assets/fonts/iconfont.css'
 import './assets/css/global.css'
 // 把element-ui安装到vue身上
 // 配置axios
-axios.defaults.baseURL = 'https://www.escook.cn:8888/api/private/v1/'
+axios.defaults.baseURL = 'http://127.0.0.1:8888/api/private/v1/'
 // 给全局 axios 配置 request 拦截器
 axios.interceptors.request.use(res => {
   res.headers.Authorization = window.sessionStorage.getItem('token')
