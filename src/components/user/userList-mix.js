@@ -54,7 +54,12 @@ export default {
           message: '请输入活动名称',
           trigger: 'blur'
         }]
-      }
+      },
+      editPowerDialogVisible: false,
+      userInfo: [],
+      roleList: [],
+      // 被选中的ID
+      checkedID: ''
     }
   },
   created () {
@@ -132,6 +137,20 @@ export default {
       this.$message.success(res.meta.msg)
       this.editDialogVisible = false
       this.getList()
+    },
+    async editPower (data) {
+      this.userInfo = data
+      const {data: res} = await this.$http.get('roles')
+      if (res.meta.status !== 200) return
+      this.roleList = res.data
+      this.editPowerDialogVisible = true
+    },
+    async saveRole () {
+      const {data: res} = await this.$http.put(`users/${this.userInfo.id}/role`, {rid: this.checkedID})
+      if (res.meta.status !== 200) return this.$message.error(res.meta.msg)
+      this.$message.success(res.meta.msg)
+      this.getList()
+      this.editPowerDialogVisible = false
     }
   }
 }

@@ -4,6 +4,8 @@ import Login from '@/components/login'
 import Home from '@/components/home/Home'
 import Welcome from '@/components/home/welcome'
 import UserList from '@/components/user/userList'
+import Right from '@/components/power/Right'
+import Roles from '@/components/power/Roles'
 
 Vue.use(Router)
 // 创建路由对象
@@ -24,6 +26,13 @@ const router = new Router({
     }, {
       path: '/users',
       component: UserList
+    }, {
+      path: '/rights',
+      component: Right
+    },
+    {
+      path: '/roles',
+      component: Roles
     }]
   }]
 })

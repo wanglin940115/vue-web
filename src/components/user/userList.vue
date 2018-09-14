@@ -37,7 +37,7 @@
             <el-button type="primary" icon="el-icon-edit" size="mini" @click="showEditDialog(scope.row.id)"></el-button>
             <el-button type="danger" icon="el-icon-delete" size="mini" @click="remove(scope.row.id)"></el-button>
             <el-tooltip effect="dark" content="分配权限" placement="top" :enterable="false">
-              <el-button type="warning" icon="el-icon-setting" size="mini"></el-button>
+              <el-button type="warning" icon="el-icon-setting" size="mini" @click="editPower(scope.row)"></el-button>
             </el-tooltip>
           </template>
         </el-table-column>
@@ -86,6 +86,23 @@
           <el-button type="primary" @click="editUser">确 定</el-button>
         </span>
       </el-dialog>
+      <!-- 分配权限对话框 -->
+      <el-dialog title="权限分配" :visible.sync="editPowerDialogVisible" width="50%">
+        <div id="user">
+          <p>当前的用户: {{userInfo.username}}</p>
+          <p>当前的角色: {{userInfo.role_name}}</p>
+          <p>分配新角色:
+            <el-select v-model="checkedID" placeholder="请选择">
+              <el-option v-for="item in roleList" :key="item.id" :label="item.roleName" :value="item.id">
+              </el-option>
+            </el-select>
+          </p>
+        </div>
+        <span slot="footer" class="dialog-footer">
+          <el-button @click="editPowerDialogVisible = false">取 消</el-button>
+          <el-button type="primary" @click="saveRole">确 定</el-button>
+        </span>
+      </el-dialog>
     </el-card>
   </div>
 </template>
@@ -98,4 +115,7 @@ export default {
 </script>
 
 <style lang="less" scoped>
+#user >p {
+  margin-bottom: 40px;
+}
 </style>

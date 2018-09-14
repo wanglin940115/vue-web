@@ -28,5 +28,22 @@ i.iconfont {
 }
 
 .el-pagination {
+  font-size: 12px;
   margin-top: 15px;
+}
+
+.el-select-dropdown__item {
+  font-size: 12px;
+}
+
+.el-dialog__body {
+  font-size: 12px;
+}
+
+.el-input__inner {
+  font-size: 12px;
+}
+
+.el-tree-node__label {
+  font-size: 12px;
 }
